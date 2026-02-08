@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CommitMood — Nibanez</title>
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div><strong>Nibanez</strong></div>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/projects/">Projects</a>
+        <a href="/#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>CommitMood</h1>
+      <p>A small, systems-minded ASP.NET API that classifies text input into outputs (rules-first), built to practice clean endpoints, DTOs, and testing.</p>
+      <div class="actions">
+        <a class="btn" href="/projects/">← Back to Projects</a>
+        <a class="btn" href="https://github.com/nibanezdev">GitHub</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>What it is</h2>
+      <div class="card">
+        <div class="meta">
+          A minimal API with a single responsibility: accept structured requests, return structured responses, and keep the core logic testable and replaceable.
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key decisions</h2>
+      <div class="card">
+        <div class="meta">
+          • Keep the endpoint surface small (one route, clear payload).<br/>
+          • Separate DTOs from internal logic so the model can evolve.<br/>
+          • Prefer predictable rules mode first; ML mode can be swapped in later.<br/>
+          • Build with testing in mind (pure functions where possible).
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Tech</h2>
+      <div class="card">
+        <div class="pills">
+          <span class="pill">C#</span><span class="pill">ASP.NET</span><span class="pill">Minimal APIs</span><span class="pill">DTOs</span><span class="pill">Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Next steps</h2>
+      <div class="card">
+        <div class="meta">
+          • Add validation and error contracts.<br/>
+          • Add persistence (simple store) to track inputs/outputs.<br/>
+          • Add a second classifier implementation behind an interface.
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">© 2026 Nibanez</div>
+  </div>
+</body>
+</html>
