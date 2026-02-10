@@ -4,488 +4,245 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nikolai Ibanez</title>
-  <meta name="description" content="Technical Artist & Tools Engineer building Unity/C# tools, pipelines, and interactive systems." />
+  <meta name="description" content="Technical Artist + Tools Engineer. Unity/C# tooling, pipelines, and technical art workflows." />
+
   <style>
-    :root {
-      --bg: #0b0f1a;
-      --panel: #0f1629;
-      --text: #e7ecff;
-      --muted: #b6c0e6;
-      --border: rgba(255,255,255,0.08);
-      --accent: #6ea8ff;
-      --accent2: #7ee0c7;
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
-      --radius: 16px;
-      --radius-sm: 12px;
-      --max: 1080px;
+    :root{
+      --bg:#070A12;
+      --panel:#0B1222;
+      --border:rgba(124,246,255,0.16);
+      --border2:rgba(77,163,255,0.18);
+      --text:#EAF0FF;
+      --muted:#A9B6D6;
+      --blue:#4DA3FF;
+      --neon:#7CF6FF; /* keep this as the only “neon” */
+      --shadow: 0 18px 50px rgba(0,0,0,0.55);
+      --r:16px;
+      --max:980px;
     }
 
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 10% 0%, rgba(110,168,255,0.18), transparent 55%),
-                  radial-gradient(1200px 800px at 90% 10%, rgba(126,224,199,0.12), transparent 55%),
-                  var(--bg);
-      color: var(--text);
-      line-height: 1.5;
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 20% 0%, rgba(77,163,255,0.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 10%, rgba(124,246,255,0.12), transparent 55%),
+        var(--bg);
+      line-height:1.5;
     }
 
-    a { color: inherit; text-decoration: none; }
-    a:hover { opacity: 0.92; }
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px;}
 
-    .container {
-      width: 100%;
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    /* Nav */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(11,15,26,0.75);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 0;
-      gap: 12px;
-    }
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.2px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-items: center;
-    }
-    .nav-links a {
-      font-size: 14px;
-      color: var(--muted);
-      padding: 8px 10px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-    }
-    .nav-links a:hover {
-      color: var(--text);
-      border-color: var(--border);
-      background: rgba(255,255,255,0.03);
+    /* Top “card” */
+    .landing{
+      min-height: 92vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:48px 0;
     }
 
-    /* Hero */
-    .hero {
-      padding: 56px 0 28px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
-      gap: 18px;
-      align-items: stretch;
-    }
-    @media (max-width: 860px) {
-      .hero-grid { grid-template-columns: 1fr; }
-    }
-    .hero-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    .card{
+      width:100%;
+      background: rgba(11,18,34,0.72);
+      border:1px solid var(--border2);
+      border-radius: 22px;
       box-shadow: var(--shadow);
       padding: 28px;
-    }
-    .kicker {
-      display: inline-flex;
-      gap: 10px;
-      align-items: center;
-      font-size: 13px;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.02);
-      margin-bottom: 14px;
-    }
-    .kicker .dot {
-      width: 8px; height: 8px; border-radius: 99px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(110,168,255,0.12);
-    }
-    h1 {
-      margin: 0 0 10px;
-      font-size: 38px;
-      line-height: 1.15;
-      letter-spacing: -0.6px;
-    }
-    @media (max-width: 520px) {
-      h1 { font-size: 32px; }
-    }
-    .subtitle {
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 16px;
-      max-width: 70ch;
-    }
-    .roles {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 0 0 18px;
-    }
-    .pill {
-      font-size: 13px;
-      color: rgba(231,236,255,0.92);
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-      padding: 6px 10px;
-      border-radius: 999px;
+      backdrop-filter: blur(10px);
     }
 
-    .cta-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    .header{
+      text-align:center;
+      margin-bottom: 18px;
+    }
+    .name{
+      font-size: 34px;
+      letter-spacing:-0.4px;
+      margin:0 0 6px;
+      font-weight: 800;
+    }
+    .role{
+      margin:0;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .navpills{
+      display:flex;
+      gap:10px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin: 18px 0 22px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: rgba(7,10,18,0.35);
+      color: var(--text);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing:0.2px;
+      transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,246,255,0.32);
+      box-shadow: 0 0 0 3px rgba(124,246,255,0.10);
+    }
+    .pill.primary{
+      border-color: rgba(77,163,255,0.35);
+      box-shadow: 0 0 0 3px rgba(77,163,255,0.10);
+    }
+
+    .center{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap: 18px;
       margin-top: 6px;
     }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 12px;
+
+    .portrait{
+      width: 260px;
+      height: 260px;
+      border-radius: 18px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      color: var(--text);
-      font-weight: 600;
-      font-size: 14px;
-      cursor: pointer;
+      background: rgba(7,10,18,0.40);
+      overflow:hidden;
+      position:relative;
     }
-    .btn:hover { background: rgba(255,255,255,0.06); }
-    .btn-primary {
-      background: linear-gradient(90deg, rgba(110,168,255,0.22), rgba(126,224,199,0.14));
-      border-color: rgba(110,168,255,0.25);
+    .portrait img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: contrast(1.05) saturate(1.05);
     }
-    .btn-primary:hover {
-      background: linear-gradient(90deg, rgba(110,168,255,0.28), rgba(126,224,199,0.18));
+    /* Subtle sci-fi edge */
+    .portrait:after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius:18px;
+      box-shadow: inset 0 0 0 1px rgba(124,246,255,0.10);
+      pointer-events:none;
     }
 
-    /* Side card */
-    .mini {
-      display: grid;
-      gap: 12px;
-    }
-    .mini .block {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 18px;
-    }
-    .mini .label {
-      font-size: 12px;
+    .statement{
+      max-width: 70ch;
+      text-align:center;
       color: var(--muted);
-      margin-bottom: 6px;
+      border: 1px solid rgba(124,246,255,0.14);
+      background: rgba(7,10,18,0.30);
+      padding: 14px 16px;
+      border-radius: 16px;
     }
-    .mini .value {
-      font-weight: 700;
-      font-size: 14px;
-    }
-    .mini .value a {
-      color: var(--text);
-      border-bottom: 1px solid rgba(231,236,255,0.2);
-    }
+    .statement b{color: var(--text); font-weight: 800;}
 
     /* Sections */
-    section {
-      padding: 22px 0;
-    }
-    .section-title {
-      font-size: 18px;
+    section{padding: 40px 0;}
+    .section-title{
+      font-size: 16px;
+      letter-spacing:0.4px;
+      text-transform: uppercase;
+      color: var(--muted);
       margin: 0 0 12px;
-      letter-spacing: -0.2px;
     }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr; } }
-
-    .card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+    .panel{
+      border:1px solid rgba(77,163,255,0.18);
+      background: rgba(11,18,34,0.55);
+      border-radius: 18px;
       padding: 18px;
-      box-shadow: var(--shadow);
     }
-    .card h3 {
-      margin: 0 0 6px;
-      font-size: 15px;
-      letter-spacing: -0.1px;
-    }
-    .card p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .tag {
-      font-size: 12px;
-      color: rgba(231,236,255,0.9);
-      border: 1px solid var(--border);
-      padding: 5px 8px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.02);
-    }
-    .badge {
-      font-size: 12px;
-      padding: 5px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(231,236,255,0.14);
-      color: rgba(231,236,255,0.85);
-      background: rgba(231,236,255,0.04);
-    }
+    ul{margin:0; padding-left: 18px; color: var(--muted);}
+    li{margin: 7px 0;}
 
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    footer{
+      padding: 30px 0 40px;
+      color: rgba(169,182,214,0.75);
+      border-top: 1px solid rgba(77,163,255,0.12);
     }
-    @media (max-width: 900px) { .row { grid-template-columns: 1fr; } }
-
-    ul {
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-    li { margin: 6px 0; }
-
-    footer {
-      padding: 26px 0 36px;
-      color: rgba(182,192,230,0.8);
-      border-top: 1px solid var(--border);
-      margin-top: 30px;
-      font-size: 13px;
-    }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-    .sep { opacity: 0.6; }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
-  <div class="nav">
-    <div class="container">
-      <div class="nav-inner">
-        <div class="brand">Nikolai Ibanez</div>
-        <div class="nav-links">
-          <a href="#featured">Featured</a>
-          <a href="#tools">Tools</a>
-          <a href="#tech-art">Technical Art</a>
-          <a href="/projects.html">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-card">
-          <div class="kicker"><span class="dot"></span><span>Tools + pipelines + interactive systems</span></div>
-
-          <h1>Technical Artist & Tools Engineer</h1>
-
-          <p class="subtitle">
-            I build tooling, pipelines, and interactive systems across Unity, C#, and DCC workflows.
-            Focused on production speed, clarity, and maintainable architecture.
-          </p>
-
-          <div class="roles">
-            <span class="pill">Tools Developer</span>
-            <span class="pill">Technical Artist</span>
-            <span class="pill">Creative Technologist</span>
-            <span class="pill">Unity / C# Systems</span>
-          </div>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="/projects.html">View Projects</a>
-            <a class="btn" href="#tools">Tools</a>
-            <!-- Replace with your resume URL when ready -->
-            <a class="btn" href="#contact">Resume</a>
-          </div>
-        </div>
-
-        <div class="mini">
-          <div class="block">
-            <div class="label">Primary stack</div>
-            <div class="value">Unity · C# · Git · DCC Pipelines</div>
-          </div>
-          <div class="block">
-            <div class="label">Focus</div>
-            <div class="value">Editor tools, automation, pipeline clarity</div>
-          </div>
-          <div class="block">
-            <div class="label">Links</div>
-            <div class="value">
-              <a href="https://github.com/nibanezdev" target="_blank" rel="noreferrer">GitHub</a>
-              <span class="sep">·</span>
-              <a href="/projects.html">Projects</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- FEATURED -->
-  <section id="featured">
-    <div class="container">
-      <h2 class="section-title">Featured Work</h2>
-
-      <div class="grid-3">
-        <a class="card" href="/projects/commitmood.html">
-          <h3>CommitMood</h3>
-          <p>Developer workflow tool built in C# to track momentum and reduce friction in daily work.</p>
-          <div class="meta">
-            <span class="tag">C#</span>
-            <span class="tag">Productivity</span>
-            <span class="tag">Systems</span>
-          </div>
-        </a>
-
-        <div class="card">
-          <h3>Unity Tooling</h3>
-          <p>Editor utilities and system tooling. Project page will be added soon.</p>
-          <div class="meta">
-            <span class="badge">Coming soon</span>
-            <span class="tag">Unity</span>
-            <span class="tag">Editor Tools</span>
-            <span class="tag">C#</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3>Maya ↔ ZBrush Pipeline</h3>
-          <p>Asset workflow automation for iteration, retopo loops, and clean handoffs between DCC tools.</p>
-          <div class="meta">
-            <span class="badge">Coming soon</span>
-            <span class="tag">Pipeline</span>
-            <span class="tag">DCC</span>
-            <span class="tag">Automation</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- MAIN SECTIONS -->
-  <section id="tools">
-    <div class="container">
-      <h2 class="section-title">Tools / Engineering</h2>
-
-      <div class="row">
-        <div class="card">
-          <h3>What I build</h3>
-          <ul>
-            <li>Unity editor tooling, inspectors, and workflow accelerators.</li>
-            <li>Automation scripts that reduce manual steps in asset and content pipelines.</li>
-            <li>Maintainable systems with clear boundaries and documentation.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>How I work</h3>
-          <ul>
-            <li>Start with the workflow pain point, then design the smallest tool that removes it.</li>
-            <li>Prefer clarity over cleverness; optimize for adoption and maintainability.</li>
-            <li>Ship usable increments; iterate based on real use.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="tech-art">
-    <div class="container">
-      <h2 class="section-title">Technical Art / 3D</h2>
-
-      <div class="row">
-        <div class="card">
-          <h3>Capabilities</h3>
-          <ul>
-            <li>Sculpting, retopology workflows, and clean asset prep for real-time engines.</li>
-            <li>Rigging and animation fundamentals (pipeline-aware).</li>
-            <li>Practical focus: assets that integrate cleanly and perform well.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h3>Why it matters</h3>
-          <ul>
-            <li>Tools that “fit” artists require understanding the real production constraints.</li>
-            <li>Technical art provides the bridge between creative output and engineering systems.</li>
-            <li>Better pipelines = faster iteration + fewer broken handoffs.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-
+  <main class="landing">
+    <div class="wrap">
       <div class="card">
-        <p style="margin:0; color: var(--muted);">
-          Add your email + LinkedIn here. Also replace the GitHub link above with your actual profile URL.
-        </p>
-        <div class="cta-row" style="margin-top:12px;">
-          <!-- Replace placeholders -->
-          <a class="btn" href="nikolai.ibanez@gmail.com">Email</a>
-          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        <div class="header">
+          <h1 class="name">Nikolai Ibanez</h1>
+          <p class="role">Technical Artist + Tools Engineer</p>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-inner">
-        <div>© 2026 Nibanez</div>
-        <div>
-          <a href="#featured">Featured</a>
-          <span class="sep"> · </span>
-          <a href="#tools">Tools</a>
-          <span class="sep"> · </span>
-          <a href="#tech-art">Technical Art</a>
-          <span class="sep"> · </span>
-          <a href="/projects.html">Projects</a>
+        <div class="navpills">
+          <a class="pill primary" href="#tools">Tools</a>
+          <a class="pill" href="#techart">Tech Art</a>
+          <a class="pill" href="/projects.html">Projects</a>
+          <a class="pill" href="#contact">Contact</a>
+        </div>
+
+        <div class="center">
+          <div class="portrait" aria-label="Portrait">
+            <!-- Put portrait.jpg in your repo root (same folder as index.html) -->
+            <img src="/portrait.jpg" alt="Portrait of Nikolai" />
+          </div>
+
+          <div class="statement">
+            I build <b>Unity/C# tooling</b> and <b>production pipelines</b> that reduce friction for artists and developers.
+            Focus: maintainable systems, fast iteration, clean handoffs.
+          </div>
         </div>
       </div>
     </div>
-  </footer>
+  </main>
+
+  <div class="wrap">
+    <section id="tools">
+      <div class="section-title">Tools</div>
+      <div class="panel">
+        <ul>
+          <li>Unity editor tooling and workflow accelerators.</li>
+          <li>Automation scripts for asset/pipeline steps (DCC → engine handoff).</li>
+          <li>Clean architecture: readable, documented, maintainable.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="techart">
+      <div class="section-title">Tech Art</div>
+      <div class="panel">
+        <ul>
+          <li>Sculpt → retopo → rig/animate → engine integration mindset.</li>
+          <li>Pipeline-aware asset prep for real-time constraints.</li>
+          <li>Focus on practical deliverables, not “art dump.”</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title">Contact</div>
+      <div class="panel">
+        <!-- Replace these -->
+        <p style="margin:0; color: var(--muted);">
+          Email: <a href="mailto:you@example.com" style="color:var(--text); border-bottom:1px solid rgba(124,246,255,0.25);">you@example.com</a><br/>
+          LinkedIn: <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" style="color:var(--text); border-bottom:1px solid rgba(124,246,255,0.25);">Profile</a><br/>
+          GitHub: <a href="https://github.com/" target="_blank" rel="noreferrer" style="color:var(--text); border-bottom:1px solid rgba(124,246,255,0.25);">Profile</a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Nibanez
+    </footer>
+  </div>
 </body>
 </html>
